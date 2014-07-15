@@ -1,0 +1,41 @@
+<div class="row">
+    <div class="col-lg-5 ">
+        <div class="grid simple ">
+            <div class="grid-title">
+                <h4>Editar</h4>
+
+                
+
+            </div>
+            <div class="grid-body">
+            	<form name="taskForm" novalidate>
+            		<div class="form-group">
+            			<label>Nombre</label>
+            			<input type="text" name="nombre" class="form-control" ng-model="formData.nombre" required />
+            			<span class="text-danger" ng-show="taskForm.nombre.$error.required && taskForm.nombre.$dirty">El campo es requerido</span>
+            		</div>
+            		<div class="form-group">
+            			<label>Dirección</label>
+            			<input type="text" name="direccion" class="form-control" ng-model="formData.direccion" required />
+            			<span class="text-danger" ng-show="taskForm.direccion.$error.required && taskForm.direccion.$dirty">El campo es requerido</span>
+            		</div>
+            		<div class="form-group">
+            			<label>Telefono</label>
+            			<input type="text" name="telefono" class="form-control" ng-model="formData.telefono" required />
+            			<span class="text-danger" ng-show="taskForm.telefono.$error.required && taskForm.telefono.$dirty">El campo es requerido</span>
+            		</div>
+            		<div class="form-group">
+            			<label>Cantidad</label>
+            			<input type="text" name="cantidad" class="form-control" ng-model="formData.cantidad" required />
+            			<span class="text-danger" ng-show="taskForm.cantidad.$error.required && taskForm.cantidad.$dirty">El campo es requerido</span>
+            		</div>
+            		<div class="form-group text-right">
+            			<button class="btn btn-primary" ng-disabled="taskForm.$invalid || isUnchanged(formData)">aceptar</button>
+            			<button class="btn btn-danger" ng-click="cancelarEditar()">cancelar</button>
+            		</div>
+            	</form>
+            </div>
+        </div>
+
+    </div>
+</div>

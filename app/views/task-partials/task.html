@@ -1,0 +1,64 @@
+<div ui-view></div>
+
+<div class="grid simple ">
+    <div class="grid-title">
+        <h4>Tareas</h4>
+        <div class="tools">
+        	<button class="btn btn-primary" ui-sref="task.nueva">nueva</button>
+        </div>
+    </div>
+    <div class="grid-body">
+        <div ng-if="goBorrar">
+            <div class="alert alert-warning" role="alert">
+                <h3>Seguro de borrar la tarea : <strong>{{nombreTarea}}</strong></h3>
+                
+                <button class="btn btn-primary text-right" ng-click="confirmarBorrado(nombreId)">Aceptar</button>
+                <button class="btn btn-danger text-right" ng-click="cancelarBorrado()">Cancelar</button>
+
+            </div>
+        </div>
+
+        <table class="table table-striped table-flip-scroll cf">
+            <thead class="cf">
+                <tr>
+                    <th>
+
+                    </th>
+                    <th>Nombre</th>
+                    <th>Dirección</th>
+                    <th>Telefono</th>
+                    <th>Cantidad</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="task in tasks">
+                    <td>
+                        <input type="checkbox" name="x">
+                    </td>
+                    <td>{{task.nombre}}</td>
+                    <td>{{task.direccion}}</td>
+                    <td>{{task.telefono}}</td>
+                    <td>{{task.cantidad}}</td>
+                    <td>
+                        <button class="btn btn-primary" ui-sref=".editar({'id':task._id})">
+                            editar
+                        </button>
+                        <button class="btn btn-danger" ng-click="borrarTask(task._id)">
+                            borrar
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="btn-group"> <a href="#" data-toggle="dropdown" class="btn dropdown-toggle btn-demo-space"> Default <span class="caret"></span> </a>
+            <ul class="dropdown-menu">
+                <li ng-repeat="user in users">
+                	<a href="#">{{user.nombre}}</a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>
